@@ -35,6 +35,7 @@ if(yandexButton != undefined && yandexInput != undefined){
  let aLinks = document.links;
  for(let i = 0; i < aLinks.length; i++){
    if(aLinks[i].href.includes("www.wildberries.ru")){
+       aLinks[i].removeAttribute("target");
        aLinks[i].click();
        linkIsFound = true;
        break;
