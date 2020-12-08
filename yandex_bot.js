@@ -30,7 +30,7 @@ if(yandexButton != undefined && yandexInput != undefined){
 
 }else{
  let aGroup = document.querySelector(".pager__items");
- let finalPage = aGroup.querySelector("span").innerText;
+ let finalPage;
  let linkIsFound = false;
  let aLinks = document.links;
  for(let i = 0; i < aLinks.length; i++){
@@ -41,9 +41,13 @@ if(yandexButton != undefined && yandexInput != undefined){
        break;
    }
  }
-   if(!linkIsFound && finalPage<5){
+    setTimeout(()=>{
+      finalPage = aGroup.querySelector("span").innerText;
+      if(!linkIsFound && finalPage<5){
        setTimeout(()=>{aGroup.lastElementChild.click();},1500)
     }else if(!linkIsFound){
        location.href = "https://yandex.ru/";
     }
+    }, 1000)
 }
+
